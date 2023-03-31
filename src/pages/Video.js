@@ -1,5 +1,6 @@
 /* eslint-disable eqeqeq */
 import React, { useRef, useState } from "react";
+import VideoFooter from "./components/footer/VideoFooter";
 import "./video.css"
 import clip from "../videos/clipnatureza.mp4"
 
@@ -28,9 +29,9 @@ function Video() {
                     onClick={handdleStart}
                     loop
                     src={clip}
-                    >
-                
-                </video>
+                ></video>
+
+                <VideoFooter/>
             </div>
             
         </>
