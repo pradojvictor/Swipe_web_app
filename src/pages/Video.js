@@ -1,22 +1,22 @@
 /* eslint-disable eqeqeq */
 import React, { useRef, useState } from "react";
 import VideoFooter from "./components/footer/VideoFooter";
+import VideoSiderbar from "./components/sidebar/VideoSiderbar"
 import "./video.css"
-import clip from "../videos/clipnatureza.mp4"
 
-function Video() {
+function Video({ likes, messages, shares, name, description, music, url }) {
 
     const videoRef = useRef(null)
     const [play, setPlay] = useState(false)
 
-    function handdleStart(){
+    function handdleStart() {
         if (play) {
             videoRef.current.pause()
             setPlay(false)
         } else {
             videoRef.current.play()
             setPlay(true)
-        }   
+        }
     }
 
     return (
@@ -28,12 +28,20 @@ function Video() {
                     ref={videoRef}
                     onClick={handdleStart}
                     loop
-                    src={clip}
+                    src={url}
                 ></video>
-
-                <VideoFooter/>
+                <VideoSiderbar
+                    likes={likes}
+                    messages={messages}
+                    shares={shares}
+                />
+                <VideoFooter
+                    name={name}
+                    description={description}
+                    music={music}
+                />
             </div>
-            
+
         </>
 
     )
