@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "./videoSiderbar.css"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ChatIcon from '@mui/icons-material/Chat';
-import ShareIcon from '@mui/icons-material/Share';
+import Comments from "../comments/Comments";
+import Share from "../send/send";
 
 
-function VideoSiderbar({likes, messages, shares}) {
+function VideoSiderbar({likes, messages, shares, comment}) {
 
     const [liked, setLiked] = useState(false)
 
@@ -24,11 +24,11 @@ function VideoSiderbar({likes, messages, shares}) {
                 <p>{ liked ? likes + 1 : likes }</p>
             </div>
             <div className="videosiderbar_options">
-                <ChatIcon fontSize="large" />
+                <Comments comment={comment}/>
                 <p>{messages}</p>
             </div>
             <div className="videosiderbar_options">
-                <ShareIcon fontSize="large" />
+                <Share fontSize="large" />
                 <p>{shares}</p>
             </div>
         </div>

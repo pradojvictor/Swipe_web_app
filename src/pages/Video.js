@@ -4,7 +4,7 @@ import VideoFooter from "./components/footer/VideoFooter";
 import VideoSiderbar from "./components/sidebar/VideoSiderbar"
 import "./video.css"
 
-function Video({ likes, messages, shares, name, description, music, url }) {
+function Video({ likes, messages, shares, name, description, music, url, comment }) {
 
     const videoRef = useRef(null)
     const [play, setPlay] = useState(false)
@@ -22,7 +22,6 @@ function Video({ likes, messages, shares, name, description, music, url }) {
     return (
         <>
             <div className="video">
-
                 <video
                     className="video_player"
                     ref={videoRef}
@@ -30,15 +29,16 @@ function Video({ likes, messages, shares, name, description, music, url }) {
                     loop
                     src={url}
                 ></video>
-                <VideoSiderbar
-                    likes={likes}
-                    messages={messages}
-                    shares={shares}
-                />
                 <VideoFooter
                     name={name}
                     description={description}
                     music={music}
+                />
+                <VideoSiderbar
+                    likes={likes}
+                    messages={messages}
+                    shares={shares}
+                    comment={comment}
                 />
             </div>
 

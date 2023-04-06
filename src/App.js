@@ -9,7 +9,7 @@ import { collection, getDocs } from 'firebase/firestore/lite';
 function App() {
 
   let maxHeight;
-  if(window.innerHeight <= 800){
+  if (window.innerHeight <= 800) {
     maxHeight = window.innerHeight
   }
 
@@ -27,7 +27,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App" style={{ maxHeight: maxHeight + "px"}}>
+    <div className="App" style={{ maxHeight: maxHeight + "px" }}>
       <div className='app_videos'>
 
         {video.map((item) => {
@@ -40,10 +40,10 @@ function App() {
               description={item.description}
               music={item.music}
               url={item.url}
+              comment={item.comment}
             />
           )
         })}
-
       </div>
     </div>
   );
